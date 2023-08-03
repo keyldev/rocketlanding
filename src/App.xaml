@@ -1,0 +1,16 @@
+﻿<Application x:Class="mvvm_rocketlanding.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:mvvm_rocketlanding"
+             xmlns:viewModel="clr-namespace:mvvm_rocketlanding.MVVM.ViewModels"
+             xmlns:view="clr-namespace:mvvm_rocketlanding.MVVM.Views"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <DataTemplate DataType="{x:Type viewModel:GraphicsViewModel}">
+            <view:GraphicsView/>
+        </DataTemplate>
+        <DataTemplate DataType="{x:Type viewModel:RocketLandingViewModel}">
+            <view:RocketLandingView/>
+        </DataTemplate>
+    </Application.Resources>
+</Application>

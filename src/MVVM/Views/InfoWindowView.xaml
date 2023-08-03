@@ -1,0 +1,26 @@
+﻿<Window x:Class="mvvm_rocketlanding.MVVM.Views.InfoWindowView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:mvvm_rocketlanding.MVVM.Views"
+        mc:Ignorable="d" WindowStyle="none" ResizeMode="NoResize" WindowStartupLocation="CenterOwner" 
+        Title="InfoWindowView" Height="400" Width="632" Background="Transparent" AllowsTransparency="True">
+    <Border BorderThickness="0" CornerRadius="15">
+        <Border.Background>
+            <ImageBrush ImageSource="/mvvm_rocketlanding;component/Assets/InfoWindow/rocket_win.jpg" Stretch="UniformToFill"/>
+        </Border.Background>
+        <Grid>
+            
+            <TextBlock x:Name="infoText" Text="К сожалению, вы проиграли :(" FontSize="26" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF0A0A0A"/>
+            <Button HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="200" Height="45" 
+                Margin="0,0,0,15" Content="Закрыть" FontSize="24" BorderThickness="0" Click="Button_Click">
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+        </Grid>
+    </Border>
+</Window>
