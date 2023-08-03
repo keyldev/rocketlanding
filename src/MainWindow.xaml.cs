@@ -34,5 +34,10 @@ namespace mvvm_rocketlanding
         {
             Application.Current.Shutdown();
         }
+
+        private void bMinWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
     }
 }

@@ -131,7 +131,7 @@
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                         <Button x:Name="bMinWindow" HorizontalAlignment="Right" Width="20" BorderThickness="0" Background="Transparent" 
-                            Content="_" Foreground="Gray" Style="{DynamicResource BorderButtonsStyle}" />
+                            Content="_" Foreground="Gray" Style="{DynamicResource BorderButtonsStyle}" Click="bMinWindow_Click"/>
                         <Button x:Name="bMaxWindow" HorizontalAlignment="Right" Width="20" BorderThickness="0" Background="Transparent"
                             Content="☐" Foreground="Gray" Style="{DynamicResource BorderButtonsStyle}" />
                         <Button x:Name="bCloseApp" HorizontalAlignment="Right" Width="20" BorderThickness="0" Background="Transparent" 
@@ -214,7 +214,7 @@
                 </ScrollViewer>
             </Grid>
             <Slider HorizontalAlignment="Left" Margin="5,334,0,0" VerticalAlignment="Top" Width="285"
-                Value="{Binding Thrust, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="200"/>
+                Value="{Binding Thrust, UpdateSourceTrigger=PropertyChanged}" Minimum="0" Maximum="100"/>
             <TextBlock HorizontalAlignment="Left" Margin="5,313,0,0" TextWrapping="Wrap" Text="Управление:" VerticalAlignment="Top" Width="93"/>
         </Grid>
         <Grid HorizontalAlignment="Left" Margin="260,25,0,10" Width="705">

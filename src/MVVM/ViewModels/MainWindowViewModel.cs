@@ -241,11 +241,11 @@ namespace mvvm_rocketlanding.MVVM.ViewModels
                 timescale = 1;
                 height = float.Parse(StartHeight);
                 Mass = float.Parse(RocketMass);
-                KPD = 300; //
+                KPD = 2500; //
                 fuel = float.Parse(FuelMass);
                 time = 0;
                 maxEndSpeed = int.Parse(MaxEndSpeed);
-                // Размеры канваса
+                // Размеры канваса (#fix)
                 RocketLandingVM.GameWindowHeight = int.Parse(StartHeight);
 
                 //
@@ -304,26 +304,27 @@ namespace mvvm_rocketlanding.MVVM.ViewModels
         private void rocketLand(object sender, EventArgs e)
         {
 
-            /* Управление клавишами (Работает)
-             * var window = Application.Current.MainWindow;
-             window.KeyDown += KeyPressed;
-             void KeyPressed(object senders, KeyEventArgs eb)
-             {
-                 if (eb.Key == Key.W)
-                     trust = (float)Thrust++;
-                 else if(eb.Key == Key.S)
-                     trust = (float)(Thrust--);
-             }*/
+
+           /* var window = Application.Current.MainWindow;
+            window.KeyDown += KeyPressed;
+            void KeyPressed(object senders, KeyEventArgs eb)
+            {
+                if (eb.Key == Key.W)
+                    trust++;
+                else if (eb.Key == Key.S)
+                    trust++;
+            }*/
+           
             trust = (float)Thrust * 4000;// * 400000;
             float dt = 0.5f * timescale;
             time += dt;
             RocketLandingVM.RocketPosition = height;
-            if (fuel >= 0)
+            if (fuel > 0)
             {
                 fuel -= trust / KPD * dt;
                 newFuel = trust / KPD * dt;
                 if (fuel < 0) fuel = 0;
-                g = G * M / ((R + height) * (R + height));
+                g = G * M / ((R + height) * (R + height)); // const g
                 a = trust / (Mass + fuel);
             }
             else
@@ -377,7 +378,7 @@ namespace mvvm_rocketlanding.MVVM.ViewModels
             VelocityFinalValue = velosity;
             FreeFallFinal = $"Ускорение свободного падения: {g} м/с2";
             FreeFallValue = g;
-            ThrustFinal = $"Тяга: {a} м/с2";
+            ThrustFinal = $"Тяга: {acceleration} м/с2";
             FuelFinal = $"Топливо: {fuel} кг";
             TimeFinal = $"Время: {time} с";
             TimeFinalValue = time;
